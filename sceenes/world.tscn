@@ -1,0 +1,52 @@
+[gd_scene load_steps=8 format=3 uid="uid://umkchyyv610w"]
+
+[ext_resource type="Texture2D" uid="uid://bawsx0l7ccbkv" path="res://assets/Backgrounds/black.png" id="1_d1q5y"]
+[ext_resource type="Script" path="res://scripts/world.gd" id="1_gkbbb"]
+[ext_resource type="PackedScene" uid="uid://g2ut3kgbhk5q" path="res://sceenes/player.tscn" id="2_2o52w"]
+[ext_resource type="PackedScene" uid="uid://dv8yx0f5ilad6" path="res://sceenes/enemys.tscn" id="4_lsb3n"]
+[ext_resource type="Texture2D" uid="uid://cp4oxtubsjltw" path="res://assets/Backgrounds/purple.png" id="4_s4yen"]
+[ext_resource type="Script" path="res://scripts/label.gd" id="5_jk2u4"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nao4o"]
+size = Vector2(453, 10)
+
+[node name="game" type="Node2D"]
+script = ExtResource("1_gkbbb")
+
+[node name="Black" type="Sprite2D" parent="."]
+position = Vector2(188, 308)
+scale = Vector2(1.90234, 2.47656)
+texture = ExtResource("1_d1q5y")
+
+[node name="player" parent="." instance=ExtResource("2_2o52w")]
+position = Vector2(192, 551)
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(200, 491)
+shape = SubResource("RectangleShape2D_nao4o")
+
+[node name="Purple" type="Sprite2D" parent="Area2D"]
+position = Vector2(200.5, 491)
+scale = Vector2(1.51172, 0.0234374)
+texture = ExtResource("4_s4yen")
+
+[node name="bullet" type="Node" parent="."]
+
+[node name="enemyspawner" parent="." instance=ExtResource("4_lsb3n")]
+
+[node name="enemy" type="Node" parent="."]
+
+[node name="Label" type="Label" parent="." groups=["text"]]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 16.0
+offset_top = 16.0
+offset_right = 416.0
+offset_bottom = 615.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Score: 0"
+script = ExtResource("5_jk2u4")

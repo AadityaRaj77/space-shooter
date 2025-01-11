@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://cbbcq50b67ca8"]
+
+[ext_resource type="Script" path="res://scripts/enemy.gd" id="1_7rgpk"]
+[ext_resource type="Texture2D" uid="uid://pukou6eq5wkv" path="res://assets/PNG/Enemies/enemyBlue1.png" id="1_dv8o5"]
+
+[node name="enemyarea" type="Area2D"]
+script = ExtResource("1_7rgpk")
+
+[node name="enemy" type="Sprite2D" parent="."]
+scale = Vector2(0.678571, 0.678571)
+texture = ExtResource("1_dv8o5")
+
+[node name="enemycollision" type="CollisionPolygon2D" parent="."]
+scale = Vector2(0.768372, 0.768372)
+polygon = PackedVector2Array(-26, 38, -24, 39, 21, 39, 46, -14, 29, -41, 11, -33, 10, -25, -8, -25, -12, -35, -30, -41, -45, -18, -26, 37)
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]

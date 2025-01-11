@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://cpt7spxbjjw4h"]
+
+[ext_resource type="Texture2D" uid="uid://ynfd7cf766vj" path="res://assets/PNG/Lasers/laserBlue01.png" id="1_ek28k"]
+[ext_resource type="Script" path="res://scripts/bullet.gd" id="1_ln7j3"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_uc6by"]
+size = Vector2(17, 35)
+
+[node name="bullet" type="Node2D"]
+script = ExtResource("1_ln7j3")
+
+[node name="laser" type="Sprite2D" parent="."]
+scale = Vector2(0.638889, 0.638889)
+texture = ExtResource("1_ek28k")
+
+[node name="bulletarea" type="Area2D" parent="."]
+
+[node name="bulletcollision" type="CollisionShape2D" parent="bulletarea"]
+shape = SubResource("RectangleShape2D_uc6by")
